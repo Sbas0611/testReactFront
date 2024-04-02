@@ -4,44 +4,27 @@ import './instructions.scss';
 export default function Instructions() {
   return (
     <div className="instructions__container">
-      <h1>Instructions</h1>
+      <h1>Instrucciones</h1>
       <p>
-        This page contains the instructions for both tasks, please refer back to
-        it when completing the tasks. These instructions can also be found in
-        the README.md file in the root of this project.
+        Esta página contiene las instrucciones para ambas tareas, por favor refiérase a ella al completar las tareas. Estas instrucciones también se pueden encontrar en el archivo README.md en la raíz de este proyecto.
       </p>
-      <h2>Task One</h2>
+      <h2>Tarea Uno</h2>
       <p>
-        This task is to assess your knowledge in retrieving and manipulating
-        data. To assist in this task an example REST API has been setup and is
-        running on port 3001 (assuming you are using `npm start` to start the
-        app). This REST API will return images and posts from the available
-        endpoints, see <a href="http://localhost:3001">http://localhost:3001</a>
-        . Each post will have an array images and an array of authors. For each post it is expected to join populate these arrays with the actual data from the objects that are represented by the ID. It is
-        expected for this task that you make the appropriate calls to the API to
-        retrieve the data to format. Then manipulate the data that you receive to match the expected JSON object
-        defined in the failing test.
+        Esta tarea es para evaluar su conocimiento en la recuperación y manipulación de datos. Para ayudar en esta tarea, se ha configurado un ejemplo de API REST y se está ejecutando en el puerto 3001 (asumiendo que está utilizando `npm start` para iniciar la aplicación). Esta API REST devolverá imágenes y publicaciones desde los puntos de acceso disponibles, consulte <a href="http://localhost:3001">http://localhost:3001</a>. Cada publicación tendrá una matriz de imágenes y una matriz de autores. Para cada publicación, se espera que complete estas matrices con los datos reales de los objetos que están representados por el ID. Se espera que para esta tarea realice las llamadas apropiadas a la API para recuperar los datos a formatear. Luego manipule los datos que reciba para que coincidan con el objeto JSON esperado definido en la prueba fallida.
       </p>
-      <p>The test is running from `src/Tasks/One/taskOne.test.tsx` and expects that the properly formatted data is rendered to the page as a string.</p>
-      <p>When reviewing your solution to this problem, please ensure that you make notes on any assumptions made, and any points you would improve given more time.</p>
-      <h2>Task Two</h2>
-      <p>This task is to assess your React / HTML / CSS / Testing skills. There is no design provided here so pixel perfect isn't a requirement. However it is expected that you use semantic HTML and common best practices to provide a responsive UI rendered to the page.</p>
-      <h3>Requirements</h3>
+      <p>La prueba se está ejecutando desde `src/Tasks/One/taskOne.test.tsx` y espera que los datos formateados correctamente se rendericen en la página como una cadena.</p>
+      <p>Al revisar su solución a este problema, asegúrese de tomar notas sobre cualquier suposición realizada y cualquier punto que mejorarías si tuvieras más tiempo.</p>
+      <h2>Tarea Dos</h2>
+      <p>Esta tarea es para evaluar sus habilidades en React / HTML / CSS / Testing. No se proporciona ningún diseño aquí, por lo que la perfección de píxeles no es un requisito. Sin embargo, se espera que utilice HTML semántico y las mejores prácticas comunes para proporcionar una IU receptiva renderizada en la página.</p>
+      <h3>Requisitos</h3>
       <ul>
-        <li>Using data from the API provided in Task One, render a list of posts to the page.</li>
-        <li>Each post should display the title, content, author, published date, and the image. These should be displayed as a card.</li>
-        <li>Each post should have a element that links to the post e.g http://localhost:3000/posts/POST_ID.</li>
-        <li>Each post should have a element that links to the author e.g http://localhost:3000/authors/AUTHOR_ID.</li>
-        <li>The posts should be displayed in a grid.</li>
-        <li>The grid should be responsive.</li>
-        <li>Each post should take up a single row and column.</li>
-        <li>The first post in the grid should take up two rows and a single column.</li>
-        <li>The date displayed on the post card should be formatted as "Sunday 3rd, Jun, 2022" etc.</li>
-        <li>The image displayed for the post should be the first image in the array of images</li>
-        <li>The post should display all authors linked to the post</li>
+        <li>Usando los datos de la API proporcionada en la Tarea Uno, renderice una lista de publicaciones en la página.</li>
+        <li>Cada publicación debe mostrar el título, contenido, autor, fecha de publicación y la imagen. Estos deben mostrarse como una tarjeta.</li>
+        <li>Cada publicación debe tener un elemento que enlace a la publicación, por ejemplo http://localhost:3000/posts/POST_ID.</li>
+        <li>Cada publicación debe tener un elemento que enlace al autor, por ejemplo http://localhost:3000/authors/AUTHOR_ID.</li>
+        <li>La fecha mostrada en la tarjeta de la publicación debe formatearse como "Domingo 3, Jun, 2022", etc.</li>
+        <li>La publicación debe mostrar todos los autores vinculados a la publicación</li>
       </ul>
-      <h3>Testing</h3>
-      <p>It is expected that you write tests for this task. Importantly we expect that the correct things are tested, use this as an opportunity to show your understanding of the correct ways to write unit tests that are flexible but will catch errors if they exist</p>
     </div>
   );
 }

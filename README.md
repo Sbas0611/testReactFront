@@ -1,65 +1,57 @@
-# Getting Started with Create React App
+# Iniciando con Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto fue inicializado con [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Scripts Disponibles
 
-In the project directory, you can run:
+En el directorio del proyecto, puedes ejecutar:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-Open [http://localhost:3001](http://localhost:3001) to view the API in the browser.
+Ejecuta la aplicación en modo de desarrollo.\
+Abre [http://localhost:3000](http://localhost:3000) para ver la página en el navegador.
+Abre [http://localhost:3001](http://localhost:3001) para ver la API en el navegador.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+La página se recargará si realizas ediciones.\
+También verás cualquier error de lint en la consola.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Inicia el corredor de pruebas en modo interactivo de observación.\
+Consulta la sección sobre [cómo ejecutar pruebas](https://facebook.github.io/create-react-app/docs/running-tests) para obtener más información.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Construye la aplicación para producción en la carpeta `build`.\
+Agrupa correctamente React en modo de producción y optimiza la construcción para obtener el mejor rendimiento.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+La construcción está minificada y los nombres de archivo incluyen los hashes.\
+¡Tu aplicación está lista para ser desplegada!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Consulta la sección sobre [despliegue](https://facebook.github.io/create-react-app/docs/deployment) para obtener más información.
 
-# Instructions
+# Instrucciones
 
-This page contains the instructions for both tasks, please refer back to it when completing the tasks. These instructions can also be found in the README.md file in the root of the project.
+Esta página contiene las instrucciones para ambas tareas, por favor refiérase a ella al completar las tareas. Estas instrucciones también se pueden encontrar en el archivo README.md en la raíz de este proyecto.
 
-## Task One
+## Tarea Uno
 
-This task is to assess your knowledge in retrieving and manipulating data. To assist in this task an example REST API has been setup and is running on port 3001 (assuming you are using \`npm start\` to start the app). This REST API will return images and posts from the available endpoints, see [http://localhost:3001](http://localhost:3001). Each post will have an array images and an array of authors. For each post it is expected to join populate these arrays with the actual data from the objects that are represented by the ID. It is expected for this task that you make the appropriate calls to the API to retrieve the data to format. Then manipulate the data that you receive to match the expected JSON object defined in the failing test.
+Esta tarea es para evaluar su conocimiento en la recuperación y manipulación de datos. Para ayudar en esta tarea, se ha configurado un ejemplo de API REST y se está ejecutando en el puerto 3001 (asumiendo que está utilizando `npm start` para iniciar la aplicación). Esta API REST devolverá imágenes y publicaciones desde los puntos de acceso disponibles, consulte [http://localhost:3001](http://localhost:3001). Cada publicación tendrá una matriz de imágenes y una matriz de autores. Para cada publicación, se espera que complete estas matrices con los datos reales de los objetos que están representados por el ID. Se espera que para esta tarea realice las llamadas apropiadas a la API para recuperar los datos a formatear. Luego manipule los datos que reciba para que coincidan con el objeto JSON esperado definido en la prueba fallida.
 
-The test is running from `src/Tasks/One/taskOne.test.tsx` and expects that the properly formatted data is rendered to the page as a string.
+La prueba se está ejecutando desde `src/Tasks/One/taskOne.test.tsx` y espera que los datos formateados correctamente se rendericen en la página como una cadena.
 
-When reviewing your solution to this problem, please ensure that you make notes on any assumptions made, and any points you would improve given more time.
+Al revisar su solución a este problema, asegúrese de tomar notas sobre cualquier suposición realizada y cualquier punto que mejorarías si tuvieras más tiempo.
 
-## Task Two
+## Tarea Dos
 
-This task is to assess your React / HTML / CSS / Testing skills. There is no design provided here so pixel perfect isn't a requirement. However it is expected that you use semantic HTML and common best practices to provide a responsive UI rendered to the page.
+Esta tarea es para evaluar sus habilidades en React / HTML / CSS / Testing. No se proporciona ningún diseño aquí, por lo que la perfección de píxeles no es un requisito. Sin embargo, se espera que utilice HTML semántico y las mejores prácticas comunes para proporcionar una IU receptiva renderizada en la página.
 
-### Requirements
+### Requisitos
 
-- Using data from the API provided in Task One, render a list of posts to the page.
-- Each post should display the title, content, author, published date, and the image. These should be displayed as a card.
-- Each post should have a element that links to the post e.g http://localhost:3000/posts/POST_ID.
-- Each post should have a element that links to the author e.g http://localhost:3000/authors/AUTHOR_ID.
-- The posts should be displayed in a grid.
-- The grid should be responsive.
-- Each post should take up a single row and column.
-- The first post in the grid should take up two rows and a single column.
-- The date displayed on the post card should be formatted as "Sunday 3rd, Jun, 2022" etc.
-- The image displayed for the post should be the first image in the array of images
-- The post should display all authors linked to the post
+- Utilizando los datos de la API proporcionada en la Tarea Uno, renderice una lista de publicaciones en la página.
+- Cada publicación debe mostrar el título, contenido, autor, fecha de publicación y la imagen. Estos deben mostrarse como una tarjeta.
+- Cada publicación debe tener un elemento que enlace a la publicación, por ejemplo http://localhost:3000/posts/POST_ID.
+- Cada publicación debe tener un elemento que enlace al autor, por ejemplo http://localhost:3000/authors/AUTHOR_ID.
+- La fecha mostrada en la tarjeta de la publicación debe formatearse como "Domingo 3, Jun, 2022", etc.
+- La publicación debe mostrar todos los autores vinculados a la publicación
 
-### Testing
-
-It is expected that you write tests for this task. Importantly we expect that the correct things are tested, use this as an opportunity to show your understanding of the correct ways to write unit tests that are flexible but will catch errors if they exist
