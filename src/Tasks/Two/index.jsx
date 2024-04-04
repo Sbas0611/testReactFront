@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./style.scss";
 import {
   Card,
   CardHeader,
@@ -59,27 +60,19 @@ const TaskComponent = () => {
             <p className="text-tiny text-white/60 uppercase font-bold">New</p>
             <h4 className="text-black font-medium text-2xl">{post.title}</h4>
           </CardHeader>
-          <div className="w-28 h-28">
-            <Image
-              removeWrapper
-              alt="Card example background"
-              className=" border-8 -scale-50 -translate-y-6"
-              src={post.images[0]?.path} // Suponiendo que la imagen está en el primer elemento del array
-            />
-          </div>
+          <Image
+            id="card-image"
+            removeWrapper
+            alt="Card example background"
+            className=" flex border-8 -scale-50 -translate-y-6"
+            src={post.images[0]?.path} // Suponiendo que la imagen está en el primer elemento del array
+          />
           <CardFooter className="absolute bg-white/30 bottom-0 border-t-1 border-zinc-100/50 z-10 justify-between">
             <div>
               <p className="text-black text-tiny">Available soon.</p>
               <p className="text-black text-tiny">Get notified.</p>
             </div>
-            <Button
-              className="text-tiny"
-              color="primary"
-              radius="full"
-              size="sm"
-            >
-              Notify Me
-            </Button>
+            <Button className="text-tiny">Notify Me</Button>
           </CardFooter>
         </Card>
       ))}
