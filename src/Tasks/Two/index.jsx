@@ -1,7 +1,15 @@
 import { useState, useEffect } from "react";
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Image,
+  Button,
+} from "@nextui-org/react";
 
 const TaskComponent = () => {
-  const [formattedData, setFormattedData] = useState("");
+  const [formattedData, setFormattedData] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -33,11 +41,7 @@ const TaskComponent = () => {
         ),
       }));
 
-      // Formatear los datos manipulados como una cadena JSON
-      const formattedDataString = JSON.stringify(formattedPosts, null, 2);
-
-      // Establecer la cadena formateada en el estado
-      setFormattedData(formattedDataString);
+      setFormattedData(formattedPosts); // Establecer los datos formateados en el estado
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -45,31 +49,40 @@ const TaskComponent = () => {
 
   return (
     <div>
-      <div className="flex flex-wrap justify-center">
-        {formattedPosts.map((post) => (
-          <div
-            key={post.id}
-            className="max-w-sm rounded overflow-hidden shadow-lg m-4"
-          >
-            <img
-              className="w-full"
-              src={post.images[0]?.url}
-              alt={post.images[0]?.alt}
+      {formattedData.map((post, index) => (
+        <Card
+          key={index}
+          isFooterBlurred
+          className="w-full h-[300px] col-span-12 sm:col-span-5"
+        >
+          <CardHeader className="absolute z-10 top-1 flex-col items-start">
+            <p className="text-tiny text-white/60 uppercase font-bold">New</p>
+            <h4 className="text-black font-medium text-2xl">{post.title}</h4>
+          </CardHeader>
+          <div className="w-28 h-28">
+            <Image
+              removeWrapper
+              alt="Card example background"
+              className=" border-8 -scale-50 -translate-y-6"
+              src={post.images[0]?.path} // Suponiendo que la imagen está en el primer elemento del array
             />
-            <div className="px-6 py-4">
-              <div className="font-bold text-xl mb-2">{post.title}</div>
-              <p className="text-gray-700 text-base">{post.content}</p>
-            </div>
-            <div className="px-6 py-4">
-              <p className="text-gray-700 text-base">
-                <strong>Authors: </strong>
-                {post.authors.map((author) => author.name).join(", ")}
-              </p>
-            </div>
           </div>
-        ))}
-      </div>
-      <pre>{formattedData}</pre>
+          <CardFooter className="absolute bg-white/30 bottom-0 border-t-1 border-zinc-100/50 z-10 justify-between">
+            <div>
+              <p className="text-black text-tiny">Available soon.</p>
+              <p className="text-black text-tiny">Get notified.</p>
+            </div>
+            <Button
+              className="text-tiny"
+              color="primary"
+              radius="full"
+              size="sm"
+            >
+              Notify Me
+            </Button>
+          </CardFooter>
+        </Card>
+      ))}
     </div>
   );
 };
