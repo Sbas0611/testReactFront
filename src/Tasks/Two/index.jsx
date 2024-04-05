@@ -54,9 +54,6 @@ const TaskComponent = () => {
       {formattedData.map((post, index) => (
         <Card key={index} isFooterBlurred className="task-card">
           <CardHeader className="task-header">
-            <p className="text-tiny text-white uppercase font-bold">
-              {post.category}
-            </p>
             <h4 className="text-black font-medium text-2xl">{post.title}</h4>
           </CardHeader>
           <Image
@@ -66,12 +63,11 @@ const TaskComponent = () => {
             className="task-image"
             src={post.images[0]?.path}
           />
+          <p className="text-tiny text-white uppercase font-bold">
+            <strong> Category:</strong> {post.category}
+          </p>
           <CardBody className="task-body">
             <p className="text-black">{post.content}</p>
-            <p className="text-black text-tiny">
-              Published on{" "}
-              {format(post.publishDate, "EEEE d, MMM, yyyy", { locale: es })}
-            </p>
             <p className="text-black text-tiny">
               Authors:{" "}
               {post.authors.map((author) => (
@@ -84,6 +80,11 @@ const TaskComponent = () => {
           <CardFooter className="task-footer">
             <Link to={`/posts/${post.id}`}>Read More</Link>
           </CardFooter>
+          <p className="date text-black text-tiny">
+            <strong>Publicado en:</strong>{" "}
+            {format(post.publishDate, "EEEE d, MMM, yyyy", { locale: es })}
+            <h6>id: {post.id}</h6>
+          </p>
         </Card>
       ))}
     </div>

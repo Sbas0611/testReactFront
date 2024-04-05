@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./PostDetailPage.scss";
 import { Image } from "@nextui-org/react";
+import { format } from "date-fns";
+import { es } from "date-fns/locale";
 
 const PostDetail = ({ postId }) => {
   const [post, setPost] = useState(null);
@@ -73,9 +75,10 @@ const PostDetail = ({ postId }) => {
             </li>
           ))}
         </ul>
-        <strong className="post-date">
-          Publicado en: {new Date(post.publishDate).toLocaleDateString()}
-        </strong>
+        <p className="post-date">
+          <strong>Publicado en:</strong>{" "}
+          {format(post.publishDate, "EEEE d, MMM, yyyy", { locale: es })}
+        </p>
       </div>
     </div>
   );
