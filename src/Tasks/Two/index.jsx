@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./style.scss";
 import {
   Card,
@@ -6,8 +7,9 @@ import {
   CardBody,
   CardFooter,
   Image,
-  Button,
 } from "@nextui-org/react";
+import { format } from "date-fns";
+import { es } from "date-fns/locale";
 
 const TaskComponent = () => {
   const [formattedData, setFormattedData] = useState([]);
@@ -18,7 +20,6 @@ const TaskComponent = () => {
 
   const fetchData = async () => {
     try {
-      // Hacer llamadas a la API para recuperar los datos de las publicaciones, imágenes y autores
       const [posts, images, authors] = await Promise.all([
         fetch("http://localhost:3001/posts").then((response) =>
           response.json()
@@ -31,7 +32,6 @@ const TaskComponent = () => {
         ),
       ]);
 
-      // Manipular los datos para completar las matrices de imágenes y autores en cada publicación
       const formattedPosts = posts.map((post) => ({
         ...post,
         images: post.images.map((imageId) =>
@@ -40,39 +40,49 @@ const TaskComponent = () => {
         authors: post.authors.map((authorId) =>
           authors.find((author) => author.id === authorId)
         ),
+        publishDate: new Date(post.publishDate),
       }));
 
-      setFormattedData(formattedPosts); // Establecer los datos formateados en el estado
+      setFormattedData(formattedPosts);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
 
   return (
-    <div>
+    <div className="task-container">
       {formattedData.map((post, index) => (
-        <Card
-          key={index}
-          isFooterBlurred
-          className="w-full h-[300px] col-span-12 sm:col-span-5"
-        >
-          <CardHeader className="absolute z-10 top-1 flex-col items-start">
-            <p className="text-tiny text-white/60 uppercase font-bold">New</p>
+        <Card key={index} isFooterBlurred className="task-card">
+          <CardHeader className="task-header">
+            <p className="text-tiny text-white uppercase font-bold">
+              {post.category}
+            </p>
             <h4 className="text-black font-medium text-2xl">{post.title}</h4>
           </CardHeader>
           <Image
             id="card-image"
             removeWrapper
             alt="Card example background"
-            className=" flex border-8 -scale-50 -translate-y-6"
-            src={post.images[0]?.path} // Suponiendo que la imagen está en el primer elemento del array
+            className="task-image"
+            src={post.images[0]?.path}
           />
-          <CardFooter className="absolute bg-white/30 bottom-0 border-t-1 border-zinc-100/50 z-10 justify-between">
-            <div>
-              <p className="text-black text-tiny">Available soon.</p>
-              <p className="text-black text-tiny">Get notified.</p>
-            </div>
-            <Button className="text-tiny">Notify Me</Button>
+          <CardBody className="task-body">
+            <p className="text-black">{post.content}</p>
+            <p className="text-black text-tiny">
+              Published on{" "}
+              {format(post.publishDate, "EEEE d, MMM, yyyy", { locale: es })}
+            </p>
+            <p className="text-black text-tiny">
+              Authors:{" "}
+              {post.authors.map((author) => (
+                <Link key={author.id} to={`/authors/${author.id}`}>
+                  {author.name}
+                </Link>
+              ))}
+            </p>
+          </CardBody>
+          <CardFooter className="task-footer">
+            <Link to={`/posts/${post.id}`}>Read More</Link>
           </CardFooter>
         </Card>
       ))}
